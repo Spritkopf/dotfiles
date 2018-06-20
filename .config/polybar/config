@@ -1,0 +1,353 @@
+[colors]
+;background = ${xrdb:color0:#222}
+background = #cc222222
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+warning = #f47b22
+icon-fgcolor = #000
+accent-grey = #fba922
+accent = #F47B22
+teal = #1fad83
+
+[bar/top]
+width = 100%
+height = 27 
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+underline-size = 2
+underline-color = ${colors.accent}
+
+border-bottom-size = 1
+border-bottom-color = ${colors.foreground} 
+
+module-margin-left = 3
+
+font-0 = FantasqueSansMonoNerdFont:size=10;2
+font-1 = "Font Awesome 5 Free:size=10;2"
+font-2 = Siji:pixelsize=10;1
+font-3 = "Font Awesome 5 Free:size=10;0"
+
+modules-center = xwindow
+modules-left = powermenu 
+modules-right = wireless-network volume battery clock
+
+[bar/bottom]
+width = 100%
+height = 25
+bottom = true
+overline-size = 5
+overline-color = ${colors.accent}
+
+background = ${colors.background}
+
+font-0 = FantasqueSansMonoNerdFont:size=10;2
+font-1 = "Font Awesome 5 Free:size=10;2"
+font-2 = Unifont:size=5;2
+font-3 = Unifont:size=3;3
+font-4 = FantasqueSansMonoNerdFont:size=10
+
+#border-top-size = 3
+#border-top-color = ${colors.accent} 
+
+spacing = 2
+padding-right = 3
+padding-left = 0
+module-margin-left = 0
+module-margin-right = 4
+
+; modules
+modules-left = i3
+modules-right = xbacklight temperature cpu memory 
+
+[module/clock]
+type = internal/date
+interval = 5
+format-padding = 2 
+#format-foreground = #fff
+date = %{A:gsimplecal:} %%{F#bb}%Y-%m-%d%%{F-}%{A}  %%{F#ee}%H:%M%%{F-}
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0 
+interval = 2.0
+ping-interval = 10
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid% 
+label-disconnected =    not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-0-foreground = #d73737
+ramp-signal-1 = 
+ramp-signal-1-foreground = #df5022
+ramp-signal-2 = 
+ramp-signal-2-foreground = #cfb017
+ramp-signal-3 = 
+ramp-signal-3-foreground = #2499c5
+ramp-signal-4 = 
+ramp-signal-4-foreground = #60ac39
+ramp-signal-5 = 
+ramp-signal-5-foreground = #60ac39
+
+[module/wired-network]
+type = internal/network
+interface = net0
+interval = 2.0
+
+label-connected =   %local_ip%
+label-disconnected = Ethernet disconnected
+label-disconnected-foreground = #66
+
+[module/xwindow]
+type = internal/xwindow
+label-maxlen = 75
+label-foreground = ${colors.foreground}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+format-spacing = 0
+pin-workspaces = true
+
+ws-icon-0 = 1: term;
+ws-icon-1 = 2: web;
+ws-icon-2 = 3: code;
+ws-icon-3 = 4: music;
+ws-icon-4 = 5: chat;
+ws-icon-default = 
+
+label-focused = %icon%  %name%
+label-focused-foreground = #f3f3f3
+label-focused-background = ${colors.accent} 
+#label-focused-underline = ${colors.accent}
+label-focused-font = 0 
+label-focused-padding = 2
+label-focused-margin = 2
+label-focused-overline = ${colors.accent}
+label-focused-underline = #148ebe
+
+#label-unfocused = %icon%  %name%
+label-unfocused = %icon%
+label-unfocused-underline = #555555
+label-unfocused-font = 0
+label-unfocused-padding = 2
+
+label-urgent = %icon%  %name%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-urgent-font = 0
+label-urgent-padding = 4
+
+label-visible = %icon%  %name%
+label-visible-foreground = #55ffffff
+label-visible-font = 0 
+label-visible-padding = 2
+
+; Battery
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC 
+full-at = 98
+
+#format-discharging = Unplugged <label-discharging>
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-full = %percentage%
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.alert}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.warning}
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground}
+
+animation-charging-framerate = 750
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 3
+format-foreground = #fff
+
+label-open =  
+label-close = Close
+label-separator = " - "
+
+menu-0-0 = Terminate WM
+menu-0-0-foreground = ${colors.accent-grey}
+menu-0-0-exec = i3-nagbar -t warning -m "Confirm exit" -b 'Yes, exit i3' 'i3-msg exit'
+menu-0-1 = Reboot
+menu-0-1-foreground = ${colors.accent-grey}
+menu-0-1-exec = menu-open-1
+menu-0-2 = Power off
+menu-0-2-foreground = ${colors.accent-grey}
+menu-0-2-exec = menu-open-2
+
+menu-1-0 = Cancel
+menu-1-0-foreground = ${colors.accent-grey}
+menu-1-0-exec = menu-open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = ${colors.accent-grey}
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = ${colors.accent-grey}
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = ${colors.accent-grey}
+menu-2-1-exec = menu-open-0
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label><bar>
+label = 
+label-font = 0
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = ${colors.foreground} 
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = ${colors.teal}
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground}
+
+[module/cpu]
+type = internal/cpu
+interval = 1.5
+
+format = <label> <ramp-coreload>
+
+label = 
+label-font = 0 
+label-foreground = ${colors.foreground} 
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2 
+ramp-coreload-0-foreground = ${colors.teal}
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = ${colors.teal}
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #ff5555
+
+[module/memory]
+type = internal/memory
+interval = 0.2
+format = <bar-used>
+
+bar-used-width = 30
+bar-used-gradient = true
+bar-used-foreground-0 = ${colors.teal} 
+bar-used-foreground-1 = #2f8419
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ed5456
+bar-used-indicator = █
+bar-used-indicator-font = 3 
+bar-used-indicator-foreground = #fff
+bar-used-fill = █
+bar-used-fill-font = 3
+bar-used-empty = █
+bar-used-empty-font = 3
+bar-used-empty-foreground = #44
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume = "  "
+label-volume-font = 0
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = sound muted
+
+bar-volume-width = 15 
+bar-volume-foreground-0 = ${colors.teal}
+bar-volume-foreground-1 = ${colors.teal}
+bar-volume-foreground-2 = ${colors.teal}
+bar-volume-foreground-3 = ${colors.teal}
+bar-volume-foreground-4 = ${colors.teal}
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp><label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 =  
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-foreground = ${colors.foreground}
+
+[settings]
+screenchange-reload = true
+#compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
+

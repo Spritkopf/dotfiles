@@ -1,0 +1,3 @@
+!!Appearance
+urxvt.scrollBar: false
+urxvt.font: xft:DejaVu Sans Mono:pixelsize=12
