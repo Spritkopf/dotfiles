@@ -1,2 +1,9 @@
+
+" enable syntax highlighting
+syntax on
+colorscheme monokai
+
+" enable line numbers in gutter
 set number
-:highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight LineNr ctermbg=None
+
