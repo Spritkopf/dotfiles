@@ -1,4 +1,4 @@
-
+set nocompatible
 " enable syntax highlighting
 syntax on
 colorscheme monokai
@@ -32,3 +32,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+set splitbelow
+" python indentation
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+
+" powerline
+set laststatus=2
+set rtp+=/usr/share/powerline/bindings/vim

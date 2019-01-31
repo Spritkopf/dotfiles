@@ -59,7 +59,7 @@ font-3 = FontAwesome5Brands:style=Solid:pixelsize=11
 
 modules-left = i3
 modules-center = xwindow
-modules-right = filesystem xkeyboard eth pulseaudio date
+modules-right = xkeyboard pulseaudio date
 
 tray-position = none
 tray-padding = 2 
