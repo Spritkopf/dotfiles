@@ -23,6 +23,7 @@ a = ["append_mode", "collapse_selection"] # Remove the selection when entering i
 i = ["insert_mode", "collapse_selection"] # Remove the selection when entering insert mode with 'i'
 "tab" = "goto_next_function" # Select and jump to the next function via Treesitter
 "S-tab" = "goto_prev_function" # Select and jump to the previous function via Treesitter 
+"home" = "goto_first_nonwhitespace" # Home jumps to first character in the line, not the beginning
 
 # Mark line and move with them up/down
 # https://github.com/helix-editor/helix/discussions/5764#discussioncomment-4840408
@@ -43,3 +44,4 @@ S-A-up = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace
 # https://github.com/helix-editor/helix/issues/3680#issuecomment-1399443274
 S-A-down = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "collapse_selection"]
 S-A-up = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "collapse_selection"]
+"home" = "goto_first_nonwhitespace" # Home jumps to first character in the line, not the beginning
