@@ -21,22 +21,36 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
+            -- Lua
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+
+            -- Rust
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
 			})
+
+            -- C / C++
 			lspconfig.clangd.setup({
 				cmd = { "clangd", "--background-index" }, -- Enable background indexing of the entire workspace
 				capabilities = capabilities,
 			})
+
+            -- CMake
 			lspconfig.cmake.setup({
 				capabilities = capabilities,
 			})
+
+            -- Python
 			lspconfig.pylsp.setup({
 				capabilities = capabilities,
 			})
+
+            -- Toml
+            lspconfig.taplo.setup({
+                capabilities = capabilities,
+            })
 
 			local wk = require("which-key")
 			wk.add({
