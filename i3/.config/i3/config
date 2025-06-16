@@ -203,7 +203,7 @@ bindsym --whole-window --border $mod+button5 exec --no-startup-id pactl set-sink
 mode "launch" {
 	
 	# choose vnc connection with dmenu
-	bindsym v exec --no-startup-id "$HOME/.scripts/dmenu/vnc/dmenu-vnc.sh" ; mode "default"
+	bindsym v exec --no-startup-id "$HOME/.scripts/vnc/dmenu-vnc-rdp.sh" ; mode "default"
 
 	bindsym b exec firefox; mode "default"
 	bindsym c exec chromium; mode "default"

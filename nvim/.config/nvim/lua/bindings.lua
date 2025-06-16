@@ -33,3 +33,12 @@ end
 
 -- Map the Home key to call the custom function
 vim.keymap.set('n', '<Home>', ':lua vim.api.nvim_feedkeys(CustomHomeKey(), "n", true)<CR>', { noremap = true, silent = true })
+
+-- Easy window navigation
+vim.keymap.set('n', '<C-Right>', '<C-w><Right>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Left>', '<C-w><Left>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Down>', '<C-w><Down>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Up>', '<C-w><Up>', { noremap = true, silent = true })
+
+
+
