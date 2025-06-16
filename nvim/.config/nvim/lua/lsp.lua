@@ -1,10 +1,10 @@
 --
 -- Enable LSPs
 --
-vim.lsp.enable({ 'lua', "clangd", "cmake", "toml" })
+vim.lsp.enable({ 'lua', "clangd", "cmake", "toml", "python" })
 
 
--- 
+--
 -- LSP Keymaps
 --
 local wk = require("which-key")
