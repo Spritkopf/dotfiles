@@ -49,6 +49,8 @@ return {
             vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[F]ormat buffer" })
             vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "[R]ename symbol" })
 
+            vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Display function signature in Insert mode" })
+
         end,
     },
 }
