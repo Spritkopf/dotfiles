@@ -9,5 +9,7 @@ vim.g.background = "light"
 
 vim.opt.swapfile = false
 vim.opt.cursorline = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 
