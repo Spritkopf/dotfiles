@@ -1,0 +1,11 @@
+#!/bin/sh
+# Xsetup - run as root before the login dialog appears
+
+# use "xrandr --query" to find out monitor names. 
+# IMPORTANT: execute above command in an X session, under walyand the monitor names are not reported correctly
+#
+# Main monitor: DP1
+# secondary monitors HDMI1 HDMI3
+
+xrandr --output HDMI1 --off --output HDMI3 --off --output DP1 --primary
+

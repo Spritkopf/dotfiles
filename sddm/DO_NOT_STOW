@@ -1,0 +1,6 @@
+
+This is just a collection of configuration files / themes for sddm, not intended to stow (will not be placed in the right places)
+
+sddm.conf -> /etc/sddm.conf
+
+themes and scripts -> /usr/share/sddm/
