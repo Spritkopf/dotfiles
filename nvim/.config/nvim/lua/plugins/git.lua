@@ -3,19 +3,19 @@ return {
         "lewis6991/gitsigns.nvim",
 
         config = function ()
-            require("gitsigns").setup()
+            local gitsigns = require("gitsigns")
+            gitsigns.setup({
+                current_line_blame_opts = {
+                    virt_text = true,
+                    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+                    delay = 0,
+                    ignore_whitespace = false,
+                    virt_text_priority = 100,
+                    use_focus = true,
+                }
+            })
+            vim.keymap.set("n", "<leader>gp", gitsigns.preview_hunk_inline,  { desc = "[P]review Hunk" })
+            vim.keymap.set("n", "<leader>gb", gitsigns.toggle_current_line_blame,  { desc = "Toggle [B]lame" })
         end
-    },
-    {
-        "f-person/git-blame.nvim",
-        event = "VeryLazy",
-        opts = {
-            enabled = false,
-            message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
-            date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
-            virtual_text_column = 1,  -- virtual text start column, check Start virtual text at column section for more options
-        },
-
-        vim.keymap.set("n", "<leader>gb", ':GitBlameToggle<CR>',  { desc = "Toggle [B]lame" })
     }
 }
