@@ -20,6 +20,11 @@ return {
 				},
 			},
 		})
+        local wk = require("which-key")
+        wk.add({
+            { "<leader>c", group = "[C]odeCompanion" },
+        })
+        vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat<CR>", {desc = "[C]hat"})
 	end,
 	dependencies = {
 		"nvim-lua/plenary.nvim",

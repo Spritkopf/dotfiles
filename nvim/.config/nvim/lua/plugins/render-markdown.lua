@@ -4,7 +4,9 @@ return {
     ft = { "markdown", "codecompanion" },
     opts = {},
     config = function()
-
+        require('render-markdown').setup({
+            enabled = false
+        })
         local wk = require("which-key")
         wk.add({
             { "<leader>v", group = "[V]iew" },
