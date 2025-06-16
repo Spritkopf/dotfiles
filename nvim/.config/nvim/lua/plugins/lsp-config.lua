@@ -60,7 +60,7 @@ return {
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to [D]efinition" })
 			vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code [A]ctions" })
-			vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[F]ormat buffer" })
+			vim.keymap.set({'n', 'v'}, "<leader>lf", vim.lsp.buf.format, { desc = "[F]ormat buffer" })
 			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "[R]ename symbol" })
 			vim.keymap.set("n", "<leader>lh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "Toggle inline [H]ints" })
 			vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show current line [D]iagnostic message" })
