@@ -1,0 +1,4 @@
+ 
+!!Appearance
+urxvt.scrollBar: false
+urxvt.font: xft:Cascadia Code:pixelsize=13
