@@ -213,7 +213,7 @@ mode "launch" {
 	#Outlook
 	# bindsym o exec gtk-launch chrome-faolnafnngnfdaknnbpnkhgohbobgegn-Default.desktop; mode "default"
 	bindsym o exec /usr/bin/firefoxpwa site launch 01GQH8FRZ3P9YKVA8YJJQ62B8F; mode "default"
-	bindsym t exec teams; mode "default"
+	bindsym t exec /home/ricardo/Apps/teams-for-linux-1.12.5.AppImage; mode "default"
 
 	bindsym n exec alacritty -e nvim -S .local/share/nvim/sessions/__home__ricardo__notes; mode "default"
 	bindsym Escape mode default
