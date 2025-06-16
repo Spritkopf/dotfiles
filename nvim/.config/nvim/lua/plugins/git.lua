@@ -16,6 +16,8 @@ return {
             })
             vim.keymap.set("n", "<leader>gp", gitsigns.preview_hunk_inline,  { desc = "[P]review Hunk" })
             vim.keymap.set("n", "<leader>gb", gitsigns.toggle_current_line_blame,  { desc = "Toggle [B]lame" })
+            vim.keymap.set("n", "<leader>ga", gitsigns.stage_hunk,  { desc = "[A]ccept (stage) Hunk" })
+            vim.keymap.set("n", "<leader>gd", gitsigns.reset_hunk,  { desc = "[D]iscard Hunk" })
         end
     }
 }
