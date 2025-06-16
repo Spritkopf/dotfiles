@@ -28,6 +28,7 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.clangd.setup({
+                cmd = { "clangd", "--background-index" },  -- Enable background indexing of the entire workspace
                 capabilities = capabilities,
             })
             lspconfig.cmake.setup({
