@@ -58,7 +58,7 @@ return {
             wk.add({
                 { "<leader>g", group = "[G]it" }
             })
-            vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua lazygit_toggle()<CR>", {noremap = true, silent = true, desc = "Open Lazygit" })
+            vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua lazygit_toggle()<CR>", {noremap = true, silent = true, desc = "Open Lazy[G]it" })
 
          end
 
