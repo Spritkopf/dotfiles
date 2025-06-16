@@ -5,8 +5,6 @@ return {
         require("overseer").setup()
         require("overseer").load_template('cpp.cppcheck')
 
-        print("✅ Custom Overseer templates registered")
-
         local wk = require("which-key")
         wk.add({
             { "<leader>r", group = "[R]un Tasks" },

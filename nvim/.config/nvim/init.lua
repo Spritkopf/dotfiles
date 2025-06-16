@@ -19,4 +19,5 @@ require("vim-options")
 require("lazy").setup("plugins")
 require("bindings")
 require("autocmds")
+require("lsp")
 

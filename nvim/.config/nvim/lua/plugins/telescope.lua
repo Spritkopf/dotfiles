@@ -20,11 +20,11 @@ return {
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 			vim.keymap.set("n", "<leader>s.", builtin.resume, { desc = "Resume last Search" })
 
-            vim.keymap.set("n", "<leader>lS", function() builtin.lsp_dynamic_workspace_symbols() end, { desc = "Workspace [S]ymbols" })
----            vim.keymap.set("n", "<leader>lS", function() builtin.lsp_workspace_symbols({ query = "" }) end, { desc = "Workspace [S]ymbols" })
+            -- vim.keymap.set("n", "<leader>lS", function() builtin.lsp_dynamic_workspace_symbols() end, { desc = "Workspace [S]ymbols" })
+            vim.keymap.set("n", "<leader>lS", function() builtin.lsp_workspace_symbols({ query = "" }) end, { desc = "Workspace [S]ymbols" })
             vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "Document [S]ymbols" })
 
-            vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Show [R]eferences"})
+            vim.keymap.set("n", "grr", builtin.lsp_references, { desc = "Show [R]eferences"})
             vim.keymap.set("n", "gD", builtin.diagnostics, { desc = "Show Diagnostics" })
 
 		end,
