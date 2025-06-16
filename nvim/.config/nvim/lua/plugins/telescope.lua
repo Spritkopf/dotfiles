@@ -12,6 +12,7 @@ return {
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+			vim.keymap.set("n", "<leader>s.", builtin.resume, { desc = "Resume last Search" })
 
             vim.keymap.set("n", "<leader>lS", builtin.lsp_workspace_symbols, { desc = "Workspace [S]ymbols" })
             vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "Document [S]ymbols" })

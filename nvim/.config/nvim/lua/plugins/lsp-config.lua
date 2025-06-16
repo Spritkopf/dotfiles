@@ -48,6 +48,7 @@ return {
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to [D]efinition" })
             vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code [A]ctions" })
             vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[F]ormat buffer" })
+            vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "[R]ename symbol" })
 
         end,
     },
