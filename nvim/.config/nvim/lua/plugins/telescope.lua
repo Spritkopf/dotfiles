@@ -6,6 +6,12 @@ return {
 
 		config = function()
 			local builtin = require("telescope.builtin")
+
+
+            local wk = require("which-key")
+            wk.add({
+                { "<leader>s", group = "[S]earch" },
+            })
 			vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Find file in workspace" })
 			vim.keymap.set("n", "<leader> ", builtin.buffers, { desc = "Find open buffers" })
 			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch: [G]rep over workspace" })

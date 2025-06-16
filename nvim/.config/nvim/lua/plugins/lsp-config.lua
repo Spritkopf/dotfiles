@@ -38,11 +38,9 @@ return {
             })
 
             local wk = require("which-key")
-            wk.register({
-                l = {
-                    name = "[L]SP",
-                }
-            }, { prefix = "<leader>" })
+            wk.add({
+            { "<leader>l", group = "[L]SP" }, -- group
+            })
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to [D]efinition" })

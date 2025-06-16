@@ -4,6 +4,12 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         local harpoon = require("harpoon")
+
+        local wk = require("which-key")
+        wk.add({
+            { "<leader>h", group = "[H]arpoon" },
+        })
+
         harpoon:setup()
         vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end)
         vim.keymap.set("n", "<C-h>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)

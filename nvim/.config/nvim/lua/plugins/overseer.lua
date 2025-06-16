@@ -6,11 +6,9 @@ return {
 
 
         local wk = require("which-key")
-        wk.register({
-            t = {
-                name = "[T]asks",
-            }
-        }, { prefix = "<leader>" })
+        wk.add({
+            { "<leader>t", group = "[T]asks" }
+        })
 
         vim.keymap.set("n", "<leader>tr", ':OverseerRun<CR>',  { desc = "[R]un Task" })
         vim.keymap.set("n", "<leader>tt", ':OverseerToggle<CR>', { desc = "[T]oggle output window" })

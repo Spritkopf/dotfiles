@@ -11,11 +11,9 @@ vim.keymap.set('v', '<A-Down>', ':m\'>+<CR>gv=gv')  -- move visual block down
 -- Buffer handling
 
 local wk = require("which-key")
-wk.register({
-    b = {
-        name = "[B]uffers",
-    }
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>b", group = "[B]uffers" },
+})
 
 vim.keymap.set("n", "<leader>bc", ':bp|bd#<CR>', { desc = '[C]lose current buffer'})
 
