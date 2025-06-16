@@ -1,0 +1,60 @@
+// @theme "/usr/share/rofi/themes/android_notification.rasi"
+@theme "/dev/null"
+
+* {
+  background-color: #32302f;
+  font-family: "JetBrains Mono";
+  text-color: #d4be98;
+}
+
+#window {
+  border: 0.2%;
+  border-radius: 10px;
+  transparency: "real";
+  width: 35%;
+  height: 500;
+}
+
+#scrollbar {
+  enabled: true;
+  background-color: #252423;
+  handle-color: #3c3836;
+  border-color: #000000;
+}
+
+#listview {
+  columns: 1;
+  fixed-height: false;
+  dynamic: true;
+  scrollbar: true;
+  spacing: 10;
+}
+
+#prompt,
+entry {
+  padding: 10;
+}
+
+#textbox {
+  padding: 20;
+}
+
+#element-text,
+button,
+listview {
+  padding: 5;
+}
+
+#element.selected {
+  background-color: #665c54;
+}
+
+element-text, element-icon {
+  background-color: inherit;
+  text-color:       inherit;
+}
+
+#button.selected {
+  background-color: #e78a4e;
+  text-color: #252423;
+}
