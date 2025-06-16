@@ -10,36 +10,34 @@
 #waybar {
   background: transparent; /*#1e222a*/
   color: @text;
-  font-size: 14px;
-  font-family: "Cascadia Code"; /*Cousine Nerd Font*/
+  font-size: 13px;
+  font-family: "Caskaydia Cove Nerd Font";
 }
 
 #workspaces {
   border-radius: 1rem;
-  margin: 5px;
   background-color: @base;
-  margin-left: 1rem;
-}
-
-#workspaces button:hover {
-  background: transparent;
-}
-#workspaces button.active:hover {
-  text-shadow: none;
 }
 
 #workspaces button {
-  padding: 5 9px 5 9px;
+  padding: 3 5px 4 5px;
   color: #eeeeef;
 }
 /* Fix: active workspace doesn't show up */
 /* #workspaces button.focused { */
 #workspaces button.active {
   color: #001b3a;
-  padding: 5 9px 5 9px;
-  color: black;
+  padding: 3 5px 4 5px;
   background-color: #219ebc;
   border-radius: 5px;
+}
+
+#workspaces button:hover {
+  background: transparent;
+    color: @red;
+}
+#workspaces button.active:hover {
+  text-shadow: none;
 }
 
 #screen,
@@ -99,36 +97,6 @@
   color: #cffafe;
   padding-right: 4px;
   padding-left: 4px;
-}
-
-#custom-hyprshade {
-  padding-right: 5px;
-}
-
-#battery {
-    color: lightgreen;
-    padding-right: 8px;
-}
-
-#battery.full {
-  padding-right: 9px;
-}
-
-#battery.warning:not(.charging) {
-  color: orange;
-}
-
-#battery.critical:not(.charging) {
-  color: #f91b13;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#backlight {
-  padding-right: 5px;
 }
 
 #disk {
