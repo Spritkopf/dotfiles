@@ -31,6 +31,10 @@ return {
             vim.cmd.Neotree('show')
         end
 
+        local wk = require("which-key")
+        wk.add({
+            { "<leader>d", group = "[D]ebug" }
+        })
         vim.keymap.set('n', '<F5>', dap.continue, {})
         vim.keymap.set('n', '<F10>', dap.step_over, {})
         vim.keymap.set('n', '<F11>', dap.step_into, {})
