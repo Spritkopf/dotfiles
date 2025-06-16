@@ -45,4 +45,6 @@ vim.keymap.set('n', '<C-Up>', '<C-w><Up>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>cg', '*``cgn', { noremap = true, silent = true })
 vim.keymap.set('n', '<c-esc>', ':let @/=""<cr>', { noremap = true, silent = true })
 
-
+-- Yanking and pasting to/from clipboard
+vim.keymap.set('n', '<leader>y', '"+y', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>p', '"+p', { noremap = true, silent = true })
