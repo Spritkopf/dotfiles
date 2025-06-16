@@ -17,7 +17,8 @@ return {
             vim.keymap.set("n", "<leader>lS", builtin.lsp_workspace_symbols, { desc = "Workspace [S]ymbols" })
             vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "Document [S]ymbols" })
 
-            vim.keymap.set("n", "gr", builtin.lsp_references, {})
+            vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Show [R]eferences"})
+            vim.keymap.set("n", "gD", builtin.diagnostics, { desc = "Show Diagnostics" })
 		end,
 	},
 	{
