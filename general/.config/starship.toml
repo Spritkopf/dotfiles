@@ -6,10 +6,10 @@ $os\
 $username\
 [](bg:peach fg:surface0)\
 $directory\
-[](fg:peach bg:sky)\
+[](fg:peach bg:blue)\
 $git_branch\
 $git_status\
-[](fg:sky bg:lavender)\
+[](fg:blue bg:lavender)\
 $c\
 $rust\
 $golang\
@@ -115,12 +115,12 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:sky"
-format = '[[ $symbol $branch ](fg:base bg:sky)]($style)'
+style = "bg:blue"
+format = '[[ $symbol $branch ](fg:base bg:blue)]($style)'
 
 [git_status]
-style = "bg:sky"
-format = '[[($all_status$ahead_behind )](fg:base bg:sky)]($style)'
+style = "bg:blue"
+format = '[[($all_status$ahead_behind )](fg:base bg:blue)]($style)'
 
 [nodejs]
 symbol = ""
