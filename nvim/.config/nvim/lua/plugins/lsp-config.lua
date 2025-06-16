@@ -49,6 +49,7 @@ return {
 			vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[F]ormat buffer" })
 			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "[R]ename symbol" })
 			vim.keymap.set("n", "<leader>lh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "Toggle inline [H]ints" })
+			vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show current line [D]iagnostic message" })
 
 			vim.keymap.set(
 				"i",
