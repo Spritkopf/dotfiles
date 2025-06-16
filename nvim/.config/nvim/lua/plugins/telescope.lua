@@ -13,8 +13,8 @@ return {
 			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 
-            vim.keymap.set("n", "<leader>lS", builtin.lsp_workspace_symbols, { desc = "[L]SP: Workspace [S]ymbols" })
-            vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "[L]SP: Document [S]ymbols" })
+            vim.keymap.set("n", "<leader>lS", builtin.lsp_workspace_symbols, { desc = "Workspace [S]ymbols" })
+            vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "Document [S]ymbols" })
 
             vim.keymap.set("n", "gr", builtin.lsp_references, {})
 		end,
