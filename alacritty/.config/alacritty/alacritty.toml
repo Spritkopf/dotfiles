@@ -3,7 +3,7 @@ import = ["~/.config/alacritty/themes/gruvbox_dark.toml","~/.config/alacritty/ke
 
 
 [font]
-size = 10.0
+size = 10.7
 
 [font.bold]
 family = "Cascadia Code"
