@@ -8,6 +8,7 @@ vim.g.mapleader = " "
 vim.g.background = "light"
 
 vim.opt.swapfile = false
+vim.opt.cursorline = true
 
 
 -- Navigate vim panes better
