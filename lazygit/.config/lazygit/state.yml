@@ -1,0 +1,21 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/ricardo/workspace/temp/esb-bridge
+- /home/ricardo/workspace/als_prox/draper/draper_wl_tool
+- /home/ricardo/workspace/hpd/hid-als-hpd-fw
+- /home/ricardo/workspace/sandbox/cmake-sandbox
+- /home/ricardo/workspace/spectral/skywalker/as7352-python-package
+- /home/ricardo/workspace/spectral/skywalker/as7352_chip_library
+- /home/ricardo/workspace/spectral/skywalker/as7352_chip_library/lib/css-sw-utilities
+- /home/ricardo/workspace/temp/modbus-rtu
+- /home/ricardo/workspace/als_prox/draper/draper_eeprom_programmer
+- /home/ricardo/workspace/als_prox/draper/draper_wl_tool/lib/sw-utils
+- /home/ricardo/workspace/docker
+- /home/ricardo/workspace/sandbox/libopencm3-template
+- /home/ricardo/workspace/ios/draper_core
+startuppopupversion: 5
+customcommandshistory:
+- git fetch --prune
+- git submodule update
+hidecommandlog: false
+ignorewhitespaceindiffview: false
