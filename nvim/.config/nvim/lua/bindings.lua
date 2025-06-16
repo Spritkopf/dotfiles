@@ -18,3 +18,20 @@ wk.register({
 }, { prefix = "<leader>" })
 
 vim.keymap.set("n", "<leader>bc", ':bp|bd#<CR>', { desc = '[C]lose current buffer'})
+
+-- Home key handling
+-- Pressing Home goes to the first non-whitepsace character. 
+-- If already there, pressing again goes to beginning of line
+
+function CustomHomeKey()
+  local col = vim.fn.col('.')
+  local first_non_whitespace = vim.fn.match(vim.fn.getline('.'), '\\S')
+  if col == first_non_whitespace + 1 then
+    return "0"
+  else
+    return "^"
+  end
+end
+
+-- Map the Home key to call the custom function
+vim.keymap.set('n', '<Home>', ':lua vim.api.nvim_feedkeys(CustomHomeKey(), "n", true)<CR>', { noremap = true, silent = true })
