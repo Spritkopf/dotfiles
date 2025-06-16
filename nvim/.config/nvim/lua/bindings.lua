@@ -41,4 +41,6 @@ vim.keymap.set('n', '<C-Down>', '<C-w><Down>', { noremap = true, silent = true }
 vim.keymap.set('n', '<C-Up>', '<C-w><Up>', { noremap = true, silent = true })
 
 
+-- Multicursor edit (Crtl-D - like)
+vim.keymap.set('n', '<leader>cg', '*``cgn', { noremap = true, silent = true })
 
