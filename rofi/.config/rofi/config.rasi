@@ -2,9 +2,10 @@
 @theme "/dev/null"
 
 * {
-  background-color: #32302f;
-  font-family: "JetBrains Mono";
-  text-color: #d4be98;
+  background-color: #1e1e2e;
+  font-family: "Cascadia Code";
+  text-color: #cdd6f4;
+    border-color: #cba6f7;
 }
 
 #window {
@@ -46,7 +47,7 @@ listview {
 }
 
 #element.selected {
-  background-color: #665c54;
+  background-color: #11111b;
 }
 
 element-text, element-icon {
