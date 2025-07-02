@@ -17,6 +17,7 @@
     ],
     "modules-right": [
         "idle_inhibitor",
+        "disk",
         "pulseaudio",
         "clock"
         // "network",
@@ -72,6 +73,13 @@
         "tooltip-format-activated": "Idle inhibitor {status}",
         "tooltip-format-deactivated": "Idle inhibitor {status}"
     },
+    "disk": {
+        "interval": 30,
+        "format": "{specific_free:0.0f} GB",
+        "unit": "GB",
+        "path": "/"
+    },
+
     "clock": {
         // "timezone": "America/New_York",
         "format": "{0:%d.%m.%Y} - {0:%H:%M}",
