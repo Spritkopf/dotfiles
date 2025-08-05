@@ -1,6 +1,8 @@
 gui:
   sidePanelWidth: 0.2 # gives you more space to show things side-by-side
   switchTabsWithPanelJumpKeys: true
+  nerdFontsVersion: "3"
+  showDivergenceFromBaseBranch: 'onlyArrow'
 git:
   pagers:
     - colorArg: always
