@@ -1,0 +1,8 @@
+[general]
+annotation-size-factor = 0.6
+
+# Font to use for text annotations
+[font]
+family = "Cascadia Code NF"
+style = "Bold"
+
