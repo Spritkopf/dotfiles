@@ -1,0 +1,22 @@
+{
+	"New changelog entry": {
+		"prefix": "changelog",
+		"body": [
+			"Version ${1:<major.minor.patch>}",
+			"---------------------------------------------------------------",
+			"",
+			"New/Changed/Fixed:",
+			"- ${2:<new/changes/fixed>}",
+			"",
+			"Removed/Deprecated:",
+			"- ${3:<removed/deprecated>}",
+			"",
+			"Known Issues/Limitations:",
+			"- ${4:<issues/limitations>}",
+			""
+		],
+		"description": "New changelog entry"
+	
+	}
+}
+

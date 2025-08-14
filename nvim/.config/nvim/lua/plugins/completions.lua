@@ -2,6 +2,7 @@ return {
     {
         'saghen/blink.cmp',
 
+        dependencies = { "rafamadriz/friendly-snippets" },
         -- use a release tag to download pre-built binaries
         version = '1.*',
         -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
@@ -35,12 +36,23 @@ return {
             },
 
             -- (Default) Only show the documentation popup when manually triggered
-            completion = { documentation = { auto_show = true } },
+            completion = {
+                documentation = { auto_show = true },
+                trigger = { show_in_snippet = false },
+            },
 
             -- Default list of enabled providers defined so that you can extend it
             -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
-                default = { 'lsp', 'path'},
+                default = { 'lsp', 'path', 'snippets' },
+                providers = {
+                    snippets = {
+                        opts = {
+                            -- Point to your custom snippets directory
+                            search_paths = { vim.fn.stdpath("config") .. "/snippets" }
+                        }
+                    }
+                }
             },
 
             -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
