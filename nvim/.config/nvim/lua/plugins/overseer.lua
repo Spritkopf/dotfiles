@@ -3,8 +3,8 @@ return {
     opts = {},
     config = function()
         require("overseer").setup()
-        require("overseer").load_template('cpp.cppcheck')
-        require("overseer").load_template('jenkins.jenkinsfile_validator')
+        -- require("overseer").load_template('cpp.cppcheck')
+        -- require("overseer").load_template('jenkins.jenkinsfile_validator')
 
         local wk = require("which-key")
         wk.add({
