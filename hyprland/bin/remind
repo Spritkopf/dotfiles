@@ -1,0 +1,15 @@
+#!/bin/bash
+# Usage: remind <delay> <message>
+
+DELAY="$1"
+shift
+MESSAGE="$*"
+
+if [[ -z "$DELAY" || -z "$MESSAGE" ]]; then
+  echo "Usage: $0 <delay> <message>"
+  echo "Example: $0 45m 'Start cooking'"
+  exit 1
+fi
+
+(sleep $DELAY && notify-send "Reminder" "$MESSAGE") & disown
+
