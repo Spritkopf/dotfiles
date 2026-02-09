@@ -19,6 +19,7 @@
         "idle_inhibitor",
         "disk",
         "pulseaudio",
+        "hyprland/language",
         "clock"
         // "network",
         // "power-profiles-daemon",
@@ -128,6 +129,12 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    
+    "hyprland/language": {
+        "format": "{}",
+        "format-de": "DE",
+        "format-eu": "EU"
     },
   //   "custom/power": {
   //       "format" : "⏻ ",
