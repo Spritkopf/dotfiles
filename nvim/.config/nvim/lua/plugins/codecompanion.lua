@@ -1,25 +1,21 @@
 return {
     "olimorris/codecompanion.nvim",
-    tag = "v17.33.0",
     config = function()
         require("codecompanion").setup({
-            adapters = {
-                http = {
-                    gemini = function()
-                        return require("codecompanion.adapters.http").extend("gemini", {
-                            env = {
-                                api_key = "cmd: cat ~/secret/gemini.txt",
-                            },
-                        })
-                    end,
-                },
-            },
-            strategies = {
+            interactions = {
                 chat = {
-                    adapter = "gemini",
+                    -- You can specify an adapter by name and model (both ACP and HTTP)
+                    adapter = {
+                        name = "copilot",
+                        model = "claude-opus-4.6",
+                    },
                 },
+                -- Or, just specify the adapter by name
                 inline = {
-                    adapter = "gemini",
+                    adapter = "copilot",
+                },
+                cmd = {
+                    adapter = "copilot",
                 },
             },
         })
@@ -33,4 +29,14 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
+
+
+    -- ---------------------------
+    -- To renew the login token, use the plugin below and run :Copilot auth
+    --
+    -- "zbirenbaum/copilot.lua",
+    -- lazy = false,
+    -- config = function()
+    --     require("copilot").setup({})
+    -- end,
 }
