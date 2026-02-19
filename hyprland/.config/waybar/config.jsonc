@@ -18,7 +18,7 @@
     "modules-right": [
         "idle_inhibitor",
         "disk",
-        "pulseaudio",
+        "wireplumber",
         "hyprland/language",
         "clock"
         // "network",
@@ -111,12 +111,12 @@
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    "pulseaudio": {
+    "wireplumber": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "{format_source}",
+        "format-muted": "0 % ",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -128,7 +128,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "alacritty --class 'wiremix-floating' -e wiremix"
     },
     
     "hyprland/language": {

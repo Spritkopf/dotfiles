@@ -4,7 +4,7 @@ return {
 
         config = function()
             require("toggleterm").setup{
-                open_mapping = [[<c-ö>]],
+                open_mapping = [[<c-;>]],
                 size = 20
             }
 
