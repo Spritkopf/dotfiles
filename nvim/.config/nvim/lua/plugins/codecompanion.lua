@@ -7,7 +7,7 @@ return {
                     -- You can specify an adapter by name and model (both ACP and HTTP)
                     adapter = {
                         name = "copilot",
-                        model = "claude-opus-4.6",
+                        model = "claude-sonnet-4.5",
                     },
                 },
                 -- Or, just specify the adapter by name
@@ -24,6 +24,8 @@ return {
             { "<leader>c", group = "[C]odeCompanion" },
         })
         vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat<CR>", { desc = "[C]hat" })
+        vim.keymap.set("v", "<leader>cc", "<cmd>'<,'>CodeCompanionChat<CR>", { desc = "[C]hat about selection" })
+        vim.keymap.set("v", "<leader>ci", "<cmd>'<,'>CodeCompanion<CR>", { desc = "[I]nline Code assistant" })
     end,
     dependencies = {
         "nvim-lua/plenary.nvim",
