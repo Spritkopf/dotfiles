@@ -50,7 +50,7 @@
 #idle_inhibitor,
 #disk,
 #language,
-#pulseaudio {
+#wireplumber {
 /*shadow: 18526e background: 001b3a*/
   padding: 4px 8px;
   background-color: @base;
