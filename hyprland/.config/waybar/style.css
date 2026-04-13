@@ -50,6 +50,7 @@
 #idle_inhibitor,
 #disk,
 #language,
+#toggle,
 #wireplumber {
 /*shadow: 18526e background: 001b3a*/
   padding: 4px 8px;
@@ -150,12 +151,12 @@ tooltip {
 }
 
 menu {
-  box-shadow: none;
-	border-radius: 5px;
+  /* box-shadow: none; */
+	border-radius: 15px;
 	background: #161320;
 	color: #B5E8E0;
 }
 
 menuitem {
-	border-radius: 5px;
+	border-radius: 15px;
 }

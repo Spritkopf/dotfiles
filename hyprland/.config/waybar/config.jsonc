@@ -16,6 +16,8 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "custom/teams-idle",
+        "custom/toggle",
         "idle_inhibitor",
         "disk",
         "wireplumber",
@@ -136,16 +138,33 @@
         "format-de": "DE",
         "format-eu": "EU"
     },
+    "custom/toggle": {
+        "format": "IDLE {}",
+        "on-click": "~/temp/toggle.sh on",
+        "on-click-right": "~/temp/toggle.sh off",
+        "tooltip": true,
+        "tooltip-format": "Left: ACTIVE | Right: IDLE"
+    },
   //   "custom/power": {
   //       "format" : "⏻ ",
 		// "tooltip": false,
 		// "menu": "on-click",
 		// "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
 		// "menu-actions": {
-		// 	"shutdown": "shutdown",
-		// 	"reboot": "reboot",
-		// 	"suspend": "systemctl suspend",
-		// 	"hibernate": "systemctl hibernate"
+		// 	"shutdown": "shutdownn",
+		// 	"reboot": "reboott",
+		// 	"suspend": "systemctssl suspend",
+		// 	"hibernate": "systemctssl hibernate"
 		// }
-  //   }
+  //   },
+    "custom/teams-idle": {
+        "format" : "⏻",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/teams_idle_menu.xml", // Menu file in resources folder
+        "menu-actions": {
+            "active": "~/bin/teams_fake_idle.sh off",
+            "idle": "~/bin/teams_fake_idle.sh on",
+        }
+    }
 }
