@@ -6,9 +6,11 @@ return {
 
         config = function()
             local builtin = require("telescope.builtin")
-
             require('telescope').setup({
                 defaults = {
+                    preview = {
+                        treesitter = false,
+                    },
                     file_ignore_patterns = { "^.git/" },
                     vimgrep_arguments = {
                         "rg",
