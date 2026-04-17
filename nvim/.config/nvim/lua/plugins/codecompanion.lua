@@ -7,7 +7,7 @@ return {
                     -- You can specify an adapter by name and model (both ACP and HTTP)
                     adapter = {
                         name = "copilot",
-                        model = "claude-sonnet-4.5",
+                        model = "claude-sonnet-4.6",
                     },
                 },
                 -- Or, just specify the adapter by name
@@ -23,7 +23,7 @@ return {
         wk.add({
             { "<leader>c", group = "[C]odeCompanion" },
         })
-        vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat<CR>", { desc = "[C]hat" })
+        vim.keymap.set("n", "<leader>cc", function() require("codecompanion").toggle() end, { desc = "[C]hat" })
         vim.keymap.set("v", "<leader>cc", "<cmd>'<,'>CodeCompanionChat<CR>", { desc = "[C]hat about selection" })
         vim.keymap.set("v", "<leader>ci", "<cmd>'<,'>CodeCompanion<CR>", { desc = "[I]nline Code assistant" })
     end,

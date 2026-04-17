@@ -1,7 +1,7 @@
 --
 -- Enable LSPs
 --
-vim.lsp.enable({ 'lua', "clangd", "cmake", "toml", "python" })
+vim.lsp.enable({ 'lua', "clangd", "cmake", "toml", "python", "markdown" })
 
 
 --
