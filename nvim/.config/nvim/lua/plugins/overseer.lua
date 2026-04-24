@@ -3,7 +3,7 @@ return {
     opts = {},
     config = function()
         require("overseer").setup()
-        require("overseer").load_template('cpp.cppcheck')
+        -- require("overseer").load_template('cpp.cppcheck')
 
         local wk = require("which-key")
         wk.add({
