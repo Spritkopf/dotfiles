@@ -25,7 +25,10 @@ return {
             -- C-k: Toggle signature help (if signature.enabled = true)
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
-            keymap = { preset = 'super-tab', ['<Enter>'] = { 'accept', 'fallback' }, },
+            keymap = {
+                preset = 'super-tab',
+                ['<Enter>'] = { 'accept', 'fallback' },
+            },
 
             signature = { enabled = true },
 
