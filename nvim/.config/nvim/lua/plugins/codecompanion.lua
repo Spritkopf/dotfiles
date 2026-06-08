@@ -1,45 +1,66 @@
 return {
-    "olimorris/codecompanion.nvim",
-    config = function()
-        require("codecompanion").setup({
-            interactions = {
-                chat = {
-                    -- You can specify an adapter by name and model (both ACP and HTTP)
-                    adapter = {
-                        name = "copilot",
-                        model = "claude-sonnet-4.6",
+    {
+        "olimorris/codecompanion.nvim",
+        config = function()
+            require("codecompanion").setup({
+                interactions = {
+                    chat = {
+                        -- You can specify an adapter by name and model (both ACP and HTTP)
+                        adapter = {
+                            name = "copilot",
+                            model = "claude-sonnet-4.6",
+                        },
+                    },
+                    -- Or, just specify the adapter by name
+                    inline = {
+                        adapter = "copilot",
+                    },
+                    cmd = {
+                        adapter = "copilot",
                     },
                 },
-                -- Or, just specify the adapter by name
-                inline = {
-                    adapter = "copilot",
-                },
-                cmd = {
-                    adapter = "copilot",
-                },
-            },
-        })
-        local wk = require("which-key")
-        wk.add({
-            { "<leader>c", group = "[C]odeCompanion" },
-        })
-        vim.keymap.set("n", "<leader>cc", function() require("codecompanion").toggle() end, { desc = "[C]hat" })
-        vim.keymap.set("v", "<leader>cc", "<cmd>'<,'>CodeCompanionChat<CR>", { desc = "[C]hat about selection" })
-        vim.keymap.set("v", "<leader>ci", "<cmd>'<,'>CodeCompanion<CR>", { desc = "[I]nline Code assistant" })
-    end,
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
+            })
+            local wk = require("which-key")
+            wk.add({
+                { "<leader>c", group = "[C]odeCompanion" },
+            })
+            vim.keymap.set("n", "<leader>cc", function() require("codecompanion").toggle() end, { desc = "[C]hat" })
+            vim.keymap.set("v", "<leader>cc", "<cmd>'<,'>CodeCompanionChat<CR>", { desc = "[C]hat about selection" })
+            vim.keymap.set("v", "<leader>ci", "<cmd>'<,'>CodeCompanion<CR>", { desc = "[I]nline Code assistant" })
+        end,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        opts = {},
     },
-    opts = {},
+    {
+        -- ---------------------------
+        -- To renew the login token, use the plugin below and run :Copilot auth
+        --
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
 
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    keymap = {
+                        accept = "<Tab>",
+                        accept_line = "<S-Tab>",
+                        accept_word = "<C-Right>",
+                        next = "»",
+                        prev = "«",
+                        dismiss = "<C-]>",
+                    },
+                },
+                panel = { enabled = false },
+            })
 
-    -- ---------------------------
-    -- To renew the login token, use the plugin below and run :Copilot auth
-    --
-    -- "zbirenbaum/copilot.lua",
-    -- lazy = false,
-    -- config = function()
-    --     require("copilot").setup({})
-    -- end,
+            vim.keymap.set("n", "<leader>ct", function() require("copilot.suggestion").toggle_auto_trigger() end,
+                { desc = "Toggle Auto-[T]riggering of suggestions" })
+        end,
+    },
 }

@@ -26,9 +26,9 @@ return {
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
             keymap = {
-                preset = 'super-tab',
-                ['<Enter>'] = { 'accept', 'fallback' },
-            },
+                    preset = 'default',
+                    ['<Enter>'] = { 'accept', 'fallback' },
+                },
 
             signature = { enabled = true },
 
