@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+usage() {
+    cat <<EOF
+Usage: md2c [options] <file>
+
+Publish a markdown file to Confluence using the mark Docker container (kovetskiy/mark).
+
+The file path can be absolute or relative to any directory — md2c resolves
+it and mounts only the file's parent directory into the container.
+
+Options:
+  -d, --dry-run   Resolve page hierarchy and show rendered HTML without
+                  publishing anything to Confluence.
+  -q, --quiet     Suppress Confluence email notifications to page watchers
+                  (passes --minor-edit to mark).
+  -h, --help      Show this help message.
+
+Examples:
+  md2c myfile.md                   publish from the current directory
+  md2c -d myfile.md                dry-run to preview without publishing
+  md2c -q myfile.md                publish silently (no notifications)
+  md2c -d -q ~/docs/page.md        dry-run with an absolute path
+
+File format:
+  Each markdown file must include at minimum a Space header:
+
+    <!-- Space: MYSPACE -->
+    <!-- Parent: Some Page -->
+
+    # Page Title
+
+  With title-from-h1 = true in mark.toml, the Title header is inferred
+  from the first H1 heading. See: https://github.com/kovetskiy/mark
+
+Config:
+  mark reads credentials from ~/.config/mark.toml:
+
+    password = "your-personal-access-token"
+    base-url  = "https://your-confluence-server"
+    title-from-h1 = false
+    drop-h1       = false
+EOF
+}
+
+dry_run=""
+minor_edit=""
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -d|--dry-run) dry_run="--dry-run"; shift ;;
+        -q|--quiet)   minor_edit="--minor-edit"; shift ;;
+        -h|--help)    usage; exit 0 ;;
+        -*) echo "error: unknown option: $1" >&2; echo "Try 'md2c --help' for usage." >&2; exit 1 ;;
+        *)  file="$1"; shift ;;
+    esac
+done
+
+if [[ -z "$file" ]]; then
+    echo "error: no file specified" >&2
+    echo "Try 'md2c --help' for usage." >&2
+    exit 1
+fi
+
+abs="$(realpath "$file")"
+dir="$(dirname "$abs")"
+filename="$(basename "$abs")"
+
+docker run --rm \
+    -v "$HOME/.config/mark.toml:/root/.config/mark.toml:ro" \
+    -v "$dir:/docs:ro" \
+    kovetskiy/mark:latest mark \
+        --files "/docs/$filename" \
+        $dry_run \
+        $minor_edit

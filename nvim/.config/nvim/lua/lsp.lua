@@ -3,7 +3,6 @@
 --
 vim.lsp.enable({ 'lua', "clangd", "cmake", "toml", "python", "markdown" })
 
-
 --
 -- LSP Keymaps
 --
