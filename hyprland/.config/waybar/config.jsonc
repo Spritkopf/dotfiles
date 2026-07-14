@@ -7,7 +7,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
+        "ext/workspaces",
         "hyprland/submap",
         "sway/scratchpad",
         "custom/media"
@@ -29,23 +29,13 @@
         // "tray"
         // "custom/power"
     ],
+
     // Modules configuration
-    // "hyprland/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "ext/workspaces": {
+	"on-click": "activate",
+	"sort-by-id": false
+},
+
     // "keyboard-state": {
     //     "numlock": true,
     //     "capslock": true,
