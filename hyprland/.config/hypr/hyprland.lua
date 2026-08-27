@@ -239,6 +239,18 @@ hl.window_rule({
     size  = { 800, 600 },
 })
 
+-- satty: show as floating window
+hl.window_rule({
+    name = "satty-floating",
+    match = {
+        class = "^(com.gabm.satty)$",
+    },
+
+    float = true,
+    center = true,
+    pin = true,
+})
+
 ------------------------
 ---- CUSTOM KEYBINDS ---
 ------------------------
@@ -256,7 +268,8 @@ hl.bind(mainMod .. " + " .. "L", hl.dsp.exec_cmd("loginctl lock-session"))
 
 -- Screenshot with Print key
 
-hl.bind("PRINT", hl.dsp.exec_cmd("flameshot screen --number $(hyprctl activeworkspace -j| jq '.monitorID') --edit"))
+-- hl.bind("PRINT", hl.dsp.exec_cmd("flameshot screen --number $(hyprctl activeworkspace -j| jq '.monitorID') --edit"))
+hl.bind("PRINT", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | satty -f - --copy-command wl-copy -o \"~/Pictures/Screenshots/%Y%m%d_%H%M%S.png\""))
 hl.bind("SHIFT" .. " + " .. "PRINT", hl.dsp.exec_cmd("local_var_HOME/bin/record_region.sh"))
 
 -- Submap for Program shortcuts (Ctrl+k  + <binding>)
