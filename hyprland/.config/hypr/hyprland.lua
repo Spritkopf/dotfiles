@@ -251,6 +251,17 @@ hl.window_rule({
     pin = true,
 })
 
+-- motion eye camera stream
+hl.window_rule({
+    name = "motioneye-cam",
+    match = {
+        class = "^motioneye-cam$",
+    },
+
+    float = true,
+    pin = true,
+})
+
 ------------------------
 ---- CUSTOM KEYBINDS ---
 ------------------------
@@ -291,4 +302,9 @@ end)
 -- hyprwhspr - Toggle mode (added by hyprwhspr setup)
 -- Press once to start, press again to stop
 hl.bind("SUPER + ALT" .. " + " .. "D", hl.dsp.exec_cmd("/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh record"))
+
+-- camera stream
+-- Press once to start, press again to stop
+hl.bind("SUPER + SHIFT" .. " + " .. "C", hl.dsp.exec_cmd("$HOME/bin/camera-stream.sh"))
+
 
