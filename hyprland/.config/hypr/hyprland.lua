@@ -26,6 +26,7 @@ local window_select = "rofi -show window"
 ------------------
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("settings set org.gnome.desktop.interface color-scheme \"prefer-dark\"")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("waybar")
     hl.exec_cmd("hypridle")
