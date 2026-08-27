@@ -5,20 +5,22 @@ import = ["~/.config/alacritty/themes/catppuccin-mocha.toml","~/.config/alacritt
 [font]
 size = 10.7
 
+[font.normal]
+family = "CaskaydiaCove Nerd Font"
+style = "Regular"
+
 [font.bold]
-family = "Cascadia Code"
+family = "CaskaydiaCove Nerd Font"
 style = "Bold"
 
-[font.bold_italic]
-style = "Bold Italic"
-
 [font.italic]
-family = "Cascadia Code"
+family = "CaskaydiaCove Nerd Font"
 style = "Italic"
 
-[font.normal]
-family = "Cascadia Code"
-style = "Regular"
+[font.bold_italic]
+family = "CaskaydiaCove Nerd Font"
+style = "Bold Italic"
+
 
 [window]
 decorations = "none"
