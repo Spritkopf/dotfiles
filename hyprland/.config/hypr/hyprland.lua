@@ -33,8 +33,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hyprsunset")
     hl.exec_cmd("hyprctl dispatch workspace 2")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-    hl.exec_cmd("elephant")
-    hl.exec_cmd("walker --gapplication-service")
+    -- hl.exec_cmd("elephant")
+    -- hl.exec_cmd("walker --gapplication-service")
 end)
 
 ------------------------------
@@ -271,8 +271,8 @@ hl.bind(mainMod .. " + " .. "f", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + " .. "t", hl.dsp.group.toggle())
 
 -- Move whole workspace to the left / right with SUPER + ALT + left/right
-hl.bind(mainMod .. " + " .. " ALT " .. " + " .. " RIGHT ", hl.dsp.workspace.move({ monitor = "-1" }))
-hl.bind(mainMod .. " + " .. " ALT " .. " + " .. " LEFT ", hl.dsp.workspace.move({ monitor = "+1" }))
+hl.bind(mainMod .. " + " .. " ALT " .. " + " .. " RIGHT ", hl.dsp.workspace.move({ monitor = "+1" }))
+hl.bind(mainMod .. " + " .. " ALT " .. " + " .. " LEFT ", hl.dsp.workspace.move({ monitor = "-1" }))
 
 -- Lock screen
 hl.bind(mainMod .. " + " .. "L", hl.dsp.exec_cmd("loginctl lock-session"))

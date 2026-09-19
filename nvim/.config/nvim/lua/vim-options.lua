@@ -14,4 +14,4 @@ vim.opt.cursorline = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.winborder = "rounded"
-
+vim.o.exrc = true
