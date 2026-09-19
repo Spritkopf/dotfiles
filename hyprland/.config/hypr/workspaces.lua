@@ -2,7 +2,7 @@
 
 hl.workspace_rule({
     workspace = 1,
-    monitor = "desc:Iiyama North America PL2480H 11182M3300120",
+    monitor = "desc:iiyama Corporation PL2480H 11182M3300120",
     default = false,
 })
 

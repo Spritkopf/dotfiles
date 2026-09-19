@@ -8,7 +8,7 @@
 
 hl.monitor({
     -- output   = "HDMI-A-1",
-    output   = "desc:Iiyama North America PL2480H 11182M3300120",
+    output   = "desc:iiyama Corporation PL2480H 11182M3300120",
     mode     = "1920x1080@60.0",
     position = "0x131",
     scale    = 1.0,
