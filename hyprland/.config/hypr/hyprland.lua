@@ -300,8 +300,12 @@ hl.define_submap("launch", function()
 end)
 
 -- hyprwhspr - Toggle mode (added by hyprwhspr setup)
--- Press once to start, press again to stop
-hl.bind("SUPER + ALT" .. " + " .. "D", hl.dsp.exec_cmd("/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh record"))
+-- -- Press once to start, press again to stop
+-- hl.bind("SUPER + ALT" .. " + " .. "D", hl.dsp.exec_cmd("/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh record"))
+--DEPRECATED, replaced by voxtype
+-- Press once to start, press again to stop recording
+hl.bind("SUPER + SHIFT +V", hl.dsp.exec_cmd("voxtype record toggle"))
+
 
 -- camera stream
 -- Press once to start, press again to stop
