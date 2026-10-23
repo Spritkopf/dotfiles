@@ -1,11 +1,13 @@
 return {
     "folke/snacks.nvim",
     lazy = false,
+
     priority = 1000,
     ---@module 'snacks'
     ---@type snacks.Config
     opts = {
         input = {},
+        picker = {},
         terminal = {},
         lazygit = {},
         indent = {
@@ -40,6 +42,17 @@ return {
         },
     },
     keys = {
+        { "<C-p>", function() Snacks.picker.files({ hidden = true }) end, desc = "Find file in workspace" },
+        { "<leader><space>", function() Snacks.picker.buffers() end, desc = "Find open buffers" },
+        { "<leader>sg", function() Snacks.picker.grep({ hidden = true }) end, desc = "[S]earch: [G]rep over workspace" },
+        { "<leader>sw", function() Snacks.picker.grep_word({ hidden = true }) end, mode = { "n", "x" }, desc = "[S]earch current [W]ord" },
+        { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "[S]earch [K]eymaps" },
+        { "<leader>sh", function() Snacks.picker.help() end, desc = "[S]earch [H]elp" },
+        { "<leader>s.", function() Snacks.picker.resume() end, desc = "Resume last Search" },
+        { "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace [S]ymbols" },
+        { "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "Document [S]ymbols" },
+        { "grr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "Show [R]eferences" },
+        { "gD", function() Snacks.picker.diagnostics() end, desc = "Show Diagnostics" },
         {
             "<c-;>",
             function() Snacks.terminal.toggle(nil, { win = { height = 20 } }) end,
@@ -52,6 +65,12 @@ return {
             desc = "Open Lazy[G]it",
         },
     },
+    config = function(_, opts)
+        require("snacks").setup(opts)
+        require("which-key").add({
+            { "<leader>s", group = "[S]earch" },
+        })
+    end,
     init = function()
         -- Window navigation from the shell terminal (not from lazygit etc., which use these keys)
         vim.api.nvim_create_autocmd("TermOpen", {
