@@ -14,21 +14,36 @@ return {
             command = "gdb",
             args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
         }
+        local explorer_was_open = false
+        local function close_explorer()
+            local explorer = Snacks.picker.get({ source = "explorer" })[1]
+            explorer_was_open = explorer ~= nil
+            if explorer then
+                explorer:close()
+            end
+        end
+        local function restore_explorer()
+            if explorer_was_open and not Snacks.picker.get({ source = "explorer" })[1] then
+                Snacks.explorer({ enter = false })
+            end
+            explorer_was_open = false
+        end
+
         dap.listeners.before.attach.dapui_config = function()
             dapui.open()
-            vim.cmd.Neotree('close')
+            close_explorer()
         end
         dap.listeners.before.launch.dapui_config = function()
             dapui.open()
-            vim.cmd.Neotree('close')
+            close_explorer()
         end
         dap.listeners.before.event_terminated.dapui_config = function()
             dapui.close()
-            vim.cmd.Neotree('show')
+            restore_explorer()
         end
         dap.listeners.before.event_exited.dapui_config = function()
             dapui.close()
-            vim.cmd.Neotree('show')
+            restore_explorer()
         end
 
         local wk = require("which-key")

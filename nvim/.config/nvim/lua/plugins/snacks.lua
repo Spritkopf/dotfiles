@@ -8,6 +8,7 @@ return {
     opts = {
         input = {},
         picker = {},
+        explorer = {},
         terminal = {},
         lazygit = {},
         indent = {
@@ -42,6 +43,21 @@ return {
         },
     },
     keys = {
+        {
+            "<leader>e",
+            function()
+                local explorer = Snacks.picker.get({ source = "explorer" })[1]
+                if not explorer then
+                    Snacks.explorer()
+                elseif explorer:is_focused() then
+                    explorer:close()
+                else
+                    Snacks.explorer.reveal()
+                    explorer:focus("list")
+                end
+            end,
+            desc = "[E]xplorer",
+        },
         { "<C-p>", function() Snacks.picker.files({ hidden = true }) end, desc = "Find file in workspace" },
         { "<leader><space>", function() Snacks.picker.buffers() end, desc = "Find open buffers" },
         { "<leader>sg", function() Snacks.picker.grep({ hidden = true }) end, desc = "[S]earch: [G]rep over workspace" },
