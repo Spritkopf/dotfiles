@@ -14,6 +14,9 @@ return {
                     use_focus = true,
                 }
             })
+            require("which-key").add({
+                { "<leader>g", group = "[G]it" },
+            })
             vim.keymap.set("n", "<leader>gp", gitsigns.preview_hunk_inline,  { desc = "[P]review Hunk" })
             vim.keymap.set("n", "<leader>gb", gitsigns.toggle_current_line_blame,  { desc = "Toggle [B]lame" })
             vim.keymap.set("n", "<leader>ga", gitsigns.stage_hunk,  { desc = "[A]ccept (stage) Hunk" })

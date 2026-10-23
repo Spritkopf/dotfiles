@@ -5,8 +5,11 @@ return {
     ---@module 'snacks'
     ---@type snacks.Config
     opts = {
+        input = {},
+        terminal = {},
+        lazygit = {},
         indent = {
-            scope = { enabled = true },
+            scope = { enabled = false },
             animate = { enabled = false },
         },
         dashboard = {
@@ -36,4 +39,36 @@ return {
             },
         },
     },
+    keys = {
+        {
+            "<c-;>",
+            function() Snacks.terminal.toggle(nil, { win = { height = 20 } }) end,
+            mode = { "n", "t" },
+            desc = "Toggle terminal",
+        },
+        {
+            "<leader>gg",
+            function() Snacks.lazygit({ cwd = Snacks.git.get_root() }) end,
+            desc = "Open Lazy[G]it",
+        },
+    },
+    init = function()
+        -- Window navigation from the shell terminal (not from lazygit etc., which use these keys)
+        vim.api.nvim_create_autocmd("TermOpen", {
+            group = vim.api.nvim_create_augroup("terminal_keymaps", {}),
+            desc = "Terminal window navigation keymaps",
+            callback = function(args)
+                local st = vim.b[args.buf].snacks_terminal
+                if st and st.cmd then
+                    return
+                end
+                local opts = { buffer = args.buf }
+                vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+                vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+                vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+                vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+                vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+            end,
+        })
+    end,
 }
