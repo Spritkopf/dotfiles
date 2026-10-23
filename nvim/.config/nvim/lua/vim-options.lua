@@ -5,6 +5,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set number")
 vim.cmd("set scrolloff=8")
 vim.cmd("set colorcolumn=120")
+vim.cmd("set signcolumn=auto:2")
 vim.g.mapleader = " "
 vim.g.background = "light"
 
