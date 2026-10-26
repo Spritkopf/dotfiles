@@ -17,7 +17,7 @@ local workspaces = require("workspaces")
 --------------------
 
 local terminal = "alacritty"
-local fileManager = "thunar"
+local filemanager = "thunar"
 local menu = "rofi -show drun"
 local window_select = "rofi -show window"
 
@@ -128,14 +128,14 @@ hl.config({
 -- Sets "Windows" key as main modifier
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + " .. "return", hl.dsp.exec_cmd("alacritty"))
+hl.bind(mainMod .. " + " .. "return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + " .. "Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "E", hl.dsp.exit())
-hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("thunar"))
+hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd(filemanager))
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "space", hl.dsp.window.float())
-hl.bind(mainMod .. " + " .. "D", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + " .. "D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "D", hl.dsp.exec_cmd("walker"))
-hl.bind(mainMod .. " + " .. "P", hl.dsp.exec_cmd("rofi -show window"))
+hl.bind(mainMod .. " + " .. "P", hl.dsp.exec_cmd(window_select))
 hl.bind(mainMod .. " + " .. "J", hl.dsp.layout("togglesplit"))
 
 -- Move focus with mainMod + arrow keys
