@@ -1,0 +1,194 @@
+/*
+
+Mild TUI / Terminal-Lite Firefox UserChrome
+
+Catppuccin Mocha Palette
+*/
+
+:root {
+/* Font & Geometry Settings */
+--tui-font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+--tui-font-size: 13px;
+
+/* Force Firefox internal radius variables to 0 */
+--tab-border-radius: 0px !important;
+--arrowpanel-border-radius: 0px !important;
+--urlbar-icon-border-radius: 0px !important;
+
+/* Catppuccin Mocha Color Palette */
+--mocha-base:      #1e1e2e;
+--mocha-mantle:    #181825;
+--mocha-crust:     #11111b;
+--mocha-surface0:  #313244;
+--mocha-surface1:  #45475a;
+--mocha-surface2:  #585b70;
+--mocha-overlay0:  #6c7086;
+--mocha-text:      #cdd6f4;
+--mocha-subtext0:  #a6adc8;
+--mocha-blue:      #89b4fa;
+--mocha-mauve:      #cba6f7;
+--mocha-lavender:  #b4befe;
+--mocha-red:       #f38ba8;
+
+/* Theme Mapping */
+--tui-bg-main:       var(--mocha-base);
+--tui-bg-tab:        var(--mocha-mantle);
+--tui-bg-tab-active: var(--mocha-surface0);
+--tui-border-color:  var(--mocha-surface1);
+--tui-text-main:     var(--mocha-text);
+--tui-text-muted:    var(--mocha-overlay0);
+--tui-accent:        var(--mocha-mauve);
+}
+
+/* Force Square Corners & Monospace Font across ALL elements */
+*,
+*::before,
+*::after,
+.tab-background,
+.tabbrowser-tab,
+#urlbar-background,
+#urlbar,
+.toolbarbutton-1,
+.scrollbox-clip {
+border-radius: 0px !important;
+font-family: var(--tui-font-family) !important;
+}
+
+/* Base Window Styling */
+#navigator-toolbox {
+background-color: var(--tui-bg-main) !important;
+border-bottom: 1px solid var(--tui-border-color) !important;
+}
+
+/* ==========================================================================
+TAB BAR STYLING
+========================================================================== */
+
+.tabbrowser-tab {
+padding-inline: 1px !important;
+}
+
+/* Unselected / Inactive Tabs */
+.tab-background {
+background: var(--tui-bg-tab) !important;
+border: 1px solid var(--tui-border-color) !important;
+border-radius: 0px !important;
+box-shadow: none !important;
+outline: none !important;
+margin-block: 2px !important;
+}
+
+/* Hover State */
+.tabbrowser-tab:hover .tab-background {
+background: #262637 !important;
+border-color: var(--mocha-surface2) !important;
+}
+
+/* Active Selected Tab - Targets multiple modern Firefox active attributes */
+.tabbrowser-tab[selected] .tab-background,
+.tabbrowser-tab[visuallyselected="true"] .tab-background,
+.tabbrowser-tab[selected="true"] .tab-background {
+background: var(--tui-bg-tab-active) !important;
+border: 1px solid var(--tui-accent) !important;
+box-shadow: inset 0 0 0 1px var(--tui-accent) !important;
+}
+
+/* Inactive Tab Text */
+.tab-label {
+color: var(--tui-text-muted) !important;
+font-weight: normal !important;
+font-size: var(--tui-font-size) !important;
+}
+
+/* Hovered Tab Text */
+.tabbrowser-tab:hover .tab-label {
+color: var(--tui-text-main) !important;
+}
+
+/* Active Tab Text */
+.tabbrowser-tab[selected] .tab-label,
+.tabbrowser-tab[visuallyselected="true"] .tab-label,
+.tabbrowser-tab[selected="true"] .tab-label {
+color: var(--tui-accent) !important;
+font-weight: bold !important;
+}
+
+/* ASCII Brackets around Inactive Tab Text [ Title ] */
+.tab-label::before {
+content: "[ ";
+color: var(--mocha-overlay0);
+}
+.tab-label::after {
+content: " ]";
+color: var(--mocha-overlay0);
+}
+
+
+/* Close Button Styling */
+.tab-close-button {
+fill: var(--tui-text-muted) !important;
+border-radius: 0px !important;
+}
+.tab-close-button:hover {
+fill: var(--mocha-red) !important;
+background-color: transparent !important;
+}
+
+/* Hide Default Tab Indicators */
+.tab-line,
+.tab-context-line,
+.tab-loading-burst {
+display: none !important;
+}
+
+/* Desaturated Favicons */
+.tab-icon-image {
+filter: grayscale(80%) !important;
+opacity: 0.6;
+}
+
+.tabbrowser-tab[selected] .tab-icon-image,
+.tabbrowser-tab[visuallyselected="true"] .tab-icon-image,
+.tabbrowser-tab[selected="true"] .tab-icon-image {
+filter: grayscale(0%) !important;
+opacity: 1;
+}
+
+/* ==========================================================================
+URL BAR & NAVBAR STYLING
+========================================================================== */
+
+#urlbar-background {
+background-color: var(--mocha-mantle) !important;
+border: 1px solid var(--tui-border-color) !important;
+border-radius: 0px !important;
+box-shadow: none !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background {
+border-color: var(--tui-accent) !important;
+}
+
+#urlbar-input {
+color: var(--tui-text-main) !important;
+font-size: var(--tui-font-size) !important;
+}
+
+/* Toolbar Buttons */
+.toolbarbutton-1 {
+fill: var(--tui-text-main) !important;
+border-radius: 0px !important;
+}
+
+.toolbarbutton-1:hover {
+background-color: var(--tui-bg-tab-active) !important;
+}
+
+/* ==========================================================================
+Bookmarks toolbar
+========================================================================== */
+#PersonalToolbar,
+#PlacesToolbarItems .bookmark-item {
+  font-size: var(--tui-font-size) !important;
+  font-family: var(--tui-font-family) !important;
+}
