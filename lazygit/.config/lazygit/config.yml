@@ -3,6 +3,16 @@ gui:
   switchTabsWithPanelJumpKeys: true
   nerdFontsVersion: "3"
   showDivergenceFromBaseBranch: 'onlyArrow'
+  theme:
+    activeBorderColor: ["#fab387", "bold"]
+    inactiveBorderColor: ["#89b4fa"]
+    searchingActiveBorderColor: ["#fab387", "bold"]
+    optionsTextColor: ["#89b4fa"]
+    selectedLineBgColor: ["#45475a"]
+    defaultFgColor: ["#cdd6f4"]
+    unstagedChangesColor: ["#f38ba8"]
+    cherryPickedCommitFgColor: ["#89b4fa"]
+    cherryPickedCommitBgColor: ["#f2cdcd"]
 git:
   diffRenderers:
     - colorArg: always
