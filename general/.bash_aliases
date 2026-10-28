@@ -3,7 +3,7 @@ alias vim=nvim
 alias hx=helix
 alias lg=lazygit
 alias dr='docker run --rm -it -v$(pwd):$(pwd) -w$(pwd)'
-alias hc='nvim ~/dotfiles/hyprland/.config/'
-alias vc='nvim ~/dotfiles/nvim/.config/nvim/'
+alias hc='cd ~/dotfiles/hyprland/.config/ && nvim'
+alias vc='cd ~/dotfiles/nvim/.config/nvim/ && nvim'
 
 . .private_aliases
