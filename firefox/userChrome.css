@@ -115,11 +115,11 @@ font-weight: bold !important;
 
 /* ASCII Brackets around Inactive Tab Text [ Title ] */
 .tab-label::before {
-content: "[ ";
+/* content: "[ "; */
 color: var(--mocha-overlay0);
 }
 .tab-label::after {
-content: " ]";
+/* content: " ]"; */
 color: var(--mocha-overlay0);
 }
 
@@ -143,8 +143,8 @@ display: none !important;
 
 /* Desaturated Favicons */
 .tab-icon-image {
-filter: grayscale(80%) !important;
-opacity: 0.6;
+filter: none !important;
+opacity: 1;
 }
 
 .tabbrowser-tab[selected] .tab-icon-image,
