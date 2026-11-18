@@ -7,9 +7,42 @@ return {
     ---@type snacks.Config
     opts = {
         input = {},
-        picker = {},
+        picker = {
+            sources = {
+                explorer = {
+                    -- unbind so the global <C-p> (file picker) works inside the explorer
+                    win = {
+                        list = { keys = { ["<c-p>"] = false, ["<Esc>"] = false } },
+                        input = { keys = { ["<c-p>"] = false, ["<Esc>"] = false } },
+                    },
+                },
+                diagnostics = {
+                    -- filename first, like grep
+                    format = function(item, picker)
+                        local ret = {}
+                        vim.list_extend(ret, Snacks.picker.format.filename(item, picker))
+                        ret[#ret + 1] = { " " }
+                        if item.severity then
+                            vim.list_extend(ret, Snacks.picker.format.severity(item, picker))
+                        end
+                        local diag = item.item
+                        ret[#ret + 1] = { diag.message }
+                        Snacks.picker.highlight.markdown(ret)
+                        if diag.source then
+                            ret[#ret + 1] = { " " }
+                            ret[#ret + 1] = { diag.source, "SnacksPickerDiagnosticSource" }
+                        end
+                        if diag.code then
+                            ret[#ret + 1] = { " " }
+                            ret[#ret + 1] = { ("(%s)"):format(diag.code), "SnacksPickerDiagnosticCode" }
+                        end
+                        return ret
+                    end,
+                },
+            },
+        },
         explorer = {},
-        terminal = {},
+        terminal = { win = { keys = { term_normal = false } } },
         lazygit = {},
         indent = {
             scope = { enabled = false },
@@ -103,6 +136,7 @@ return {
                 vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
                 vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
                 vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+                vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
             end,
         })
     end,

@@ -7,7 +7,7 @@ return {
         config = function()
             -- No-op for parsers that are already installed
             require("nvim-treesitter").install({
-                "bash", "c", "cmake", "cpp", "groovy", "lua", "make",
+                "bash", "c", "cmake", "cpp", "groovy", "json", "lua", "make",
                 "markdown", "markdown_inline", "python", "rust", "toml", "yaml",
             })
 
@@ -16,7 +16,7 @@ return {
                 group = vim.api.nvim_create_augroup("treesitter_start", {}),
                 desc = "Start treesitter highlighting",
                 pattern = {
-                    "bash", "sh", "c", "cmake", "cpp", "groovy", "lua", "make",
+                    "bash", "sh", "c", "cmake", "cpp", "groovy", "json", "jsonc", "lua", "make",
                     "markdown", "python", "rust", "toml", "yaml",
                 },
                 callback = function(args)

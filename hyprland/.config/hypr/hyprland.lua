@@ -16,7 +16,7 @@ local workspaces = require("workspaces")
 ---- MY PROGRAMS ---
 --------------------
 
-local terminal = "alacritty"
+local terminal = "kitty"
 local filemanager = "thunar"
 local menu = "rofi -show drun"
 local window_select = "rofi -show window"
@@ -263,13 +263,13 @@ hl.bind("SHIFT" .. " + " .. "PRINT", hl.dsp.exec_cmd("local_var_HOME/bin/record_
 hl.bind(mainMod .. " + " .. "K", hl.dsp.submap("launch"))
 
 hl.define_submap("launch", function()
-    hl.bind("t", hl.dsp.exec_cmd("$HOME/Apps/teams-for-linux-2.7.13.AppImage"))
+    hl.bind("t", hl.dsp.exec_cmd("$HOME/Apps/teams-for-linux-latest.AppImage"))
     hl.bind("t", hl.dsp.submap("reset"))
     hl.bind("b", hl.dsp.exec_cmd("firefox"))
     hl.bind("b", hl.dsp.submap("reset"))
     hl.bind("v", hl.dsp.exec_cmd("$HOME/.scripts/vnc/dmenu-vnc-rdp.sh"))
     hl.bind("v", hl.dsp.submap("reset"))
-    hl.bind("N", hl.dsp.exec_cmd("alacritty -e nvim local_var_HOME/notes"))
+    hl.bind("N", hl.dsp.exec_cmd("alacritty -e nvim $HOME/notes"))
     hl.bind("n", hl.dsp.submap("reset"))
     hl.bind("ESCAPE", hl.dsp.submap("reset"))
 end)
